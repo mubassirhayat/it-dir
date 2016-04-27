@@ -157,6 +157,11 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
 
+        /*
+         * External Service Providers...
+         */
+        PHPZen\LaravelRbac\RbacServiceProvider::class,
+
     ],
 
     /*
