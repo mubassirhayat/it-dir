@@ -70,5 +70,8 @@ class AuthController extends Controller
             'contact' => $data['contact'],
             'password' => bcrypt($data['password']),
         ]);
+        // $role = Role::where('slug', 'administrator')->first();
+        // $user->roles()->attach($role->id);
+        // return 1;
     }
 }

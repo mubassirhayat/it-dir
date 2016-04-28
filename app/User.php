@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use PHPZen\LaravelRbac\Traits\Rbac;
 
 class User extends Authenticatable
 {
+    use Rbac;
     /**
      * The attributes that are mass assignable.
      *
