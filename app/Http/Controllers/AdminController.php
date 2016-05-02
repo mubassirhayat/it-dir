@@ -26,6 +26,9 @@ class AdminController extends Controller
      */
     public function index()
     {
+        foreach ($variable as $key => $value) {
+            CarFatoryController::createCarObj($value['name'], $value['model']);
+        }
         return view('welcome');
     }
 
