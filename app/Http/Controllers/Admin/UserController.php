@@ -68,7 +68,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $data = [
+            'user' => $user,
+            'updateable' => true
+        ];
+        return view('users.create', $data);
     }
 
     /**
@@ -80,7 +85,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // 
+        // dd($request);
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->contact = $request->input('contact');
+        $user->email = $request->input('email');
+
+        $user->save();
+
+        return redirect('backend/users');
     }
 
     /**
@@ -91,6 +104,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        // 
+        dd($id);
     }
 }

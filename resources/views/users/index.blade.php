@@ -35,8 +35,10 @@
 									<td>{{ $user->email }}</td>
 									<td>{{ $user->created_at }}</td>
 									<td>
-										<a href="#" class="btn btn-warning">Edit</a>
-										<a href="#" class="btn btn-danger">Delete</a>
+										<a href="{{ url('backend/users/' . $user->id . '/edit') }}" class="btn btn-warning">Edit</a>
+										{!! Form::open(array('url' => ['backend/users', $user->id], 'method' => 'DELETE', 'class' => 'form-inline')) !!}
+											{!! Form::submit('Delete', array('class' => 'btn btn-danger')); !!}
+										{!! Form::close() !!}
 									</td>
 								</tr>
 							@endforeach
