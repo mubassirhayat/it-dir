@@ -27,6 +27,6 @@ class Project extends Model
     // Project::where('user_id', $userId)->get();
     public function users()
     {
-    	return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 }
