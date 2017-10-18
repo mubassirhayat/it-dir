@@ -20,14 +20,13 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/check', function () {
-	$isAdmin = Auth::user()->hasRole('administrator'); // pass role slug as parameter
-	dd($isAdmin);
+    $isAdmin = Auth::user()->hasRole('administrator'); // pass role slug as parameter
+    dd($isAdmin);
 });
 
-
 Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'rbac:is,administrator']], function () {
-	Route::get('index', 'AdminController@index');
-	Route::resource('users', 'Admin\UserController');
+    Route::get('index', 'AdminController@index');
+    Route::resource('users', 'Admin\UserController');
 });
 
 // Route::group(['prefix' => 'backend', 'middleware' => ['auth', 'rbac:is,interviwer']], function () {
